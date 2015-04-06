@@ -6,6 +6,7 @@ import pixi.core.display.Container;
 import pixi.core.renderers.SystemRenderer;
 
 import game.components.*;
+import game.entities.*;
 import game.systems.*;
 
 class Game {
@@ -22,11 +23,18 @@ class Game {
     for (i in 0...Config.xTiles) {
       for (j in 0...Config.yTiles) {
         world.engine.create([
-          new Display("assets/grass.png"),
+          new Display('assets/grass.png'),
           new Position(i, j)
         ]);
       }
     }
+
+    world.engine.create([
+      new Display('assets/base.png'),
+      new Position(Config.xTiles - 3, Config.yTiles - 3)
+    ]);
+
+    TankFactory.createTank(world, 2, 2);
 
     world.physics.add(new MouseInteraction(stage));
     world.render.add(new DrawPosition(stage));
