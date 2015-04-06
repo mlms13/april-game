@@ -1,0 +1,24 @@
+{
+  "name": "april-game",
+  "version": "1.0.0",
+  "description": "No one really knows what this is going to be yet, but I'm pretty sure the theme ended up being \"turn-based\".",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./node_modules/gulp/bin/gulp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mlms13/april-game.git"
+  },
+  "author": "Michael Martin-Smucker <mlmartin13@gmail.com> (http://www.martinsmucker.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mlms13/april-game/issues"
+  },
+  "homepage": "https://github.com/mlms13/april-game"
+}
