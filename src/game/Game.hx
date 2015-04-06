@@ -27,6 +27,10 @@ class Game {
         ]);
       }
     }
+
+    world.physics.add(new MouseInteraction(stage));
+    world.render.add(new DrawPosition(stage));
+    world.render.add(new PixiRenderer(stage, renderer));
   }
 
   public function start() {
