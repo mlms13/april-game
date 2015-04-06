@@ -2,19 +2,12 @@ package game.components;
 
 import edge.IComponent;
 import pixi.core.sprites.Sprite;
+import pixi.core.textures.Texture;
 
 class Selectable implements IComponent {
-  var x : Float;
-  var y : Float;
-  var width : Float;
-  var height : Float;
-  var sprite : Sprite;
+  public var isSelected : Bool;
 
-  public function new(x : Float, y : Float, width : Float, height : Float, sprite : Sprite) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.sprite = sprite;
+  public function new(?selected : Bool) {
+    this.isSelected = selected == null ? false : selected;
   }
 }

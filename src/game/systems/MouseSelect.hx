@@ -5,9 +5,12 @@ import pixi.core.display.Container;
 import pixi.core.utils.EventData;
 import pixi.core.math.Point;
 
+import game.components.Dimensions;
+import game.components.Display;
+import game.components.Position;
 import game.components.Selectable;
 
-class MouseInteraction implements ISystem {
+class MouseSelect implements ISystem {
   var stage : Container;
   var mouseCoords: { x : Float, y : Float };
   var mouseIsDown : Bool;
@@ -37,11 +40,18 @@ class MouseInteraction implements ISystem {
     mouseIsDown = false;
   }
 
-  public function update(s : Selectable) {
-    if (mouseIsDown) {
-      trace('Mouse Down at ${mouseCoords.x}, ${mouseCoords.y}');
-    } else {
-        trace('Mouse not down at ${mouseCoords.x}, ${mouseCoords.y}');
+  public function update(s : Selectable, p : Position, dim : Dimensions, dis : Display) {
+    if (!mouseIsDown) return;
+
+    if (mouseCoords.x >= p.x && mouseCoords.x <= p.x + dim.width &&
+        mouseCoords.y >= p.y && mouseCoords.y <= p.y + dim.height) {
+      if (!s.isSelected) {
+        s.isSelected = true;
+        dis.sprite.alpha = 1;
+      } else {
+        s.isSelected = false;
+        dis.sprite.alpha = 0.8;
+      }
     }
   }
 }
