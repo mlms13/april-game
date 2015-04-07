@@ -16,6 +16,7 @@ class DrawPosition implements ISystem {
 
   public function updateAdded(e : Entity, data : { d : Display}) {
     stage.addChild(data.d.sprite);
+    data.d.sprite.alpha = 0.8;
   }
 
   public function updateRemoved(e : Entity, data : { d : Display}) {
