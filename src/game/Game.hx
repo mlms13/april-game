@@ -24,17 +24,17 @@ class Game {
       for (j in 0...Config.yTiles) {
         world.engine.create([
           new Display('assets/grass.png'),
-          new Position(i * Config.tileWidth, j * Config.tileHeight)
+          new Position(i, j)
         ]);
       }
     }
 
     world.engine.create([
       new Display('assets/base.png'),
-      new Position(Config.width - 96, Config.height - 96)
+      new Position(Config.xTiles - 2, Config.yTiles -2)
     ]);
 
-    TankFactory.createTank(world, 32, 32);
+    TankFactory.createTank(world, 2, 2);
 
     world.physics.add(new MouseSelect(stage));
     world.render.add(new DrawPosition(stage));

@@ -8,7 +8,6 @@ class TankFactory {
     world.engine.create([
       new Display('assets/tank.png'),
       new Position(x, y),
-      new Dimensions(32, 32),
       new Selectable()
     ]);
   }

@@ -19,12 +19,15 @@ class MouseSelect extends PixiMouse implements ISystem {
     clickedThisFrame = firstDown;
   }
 
-  public function update(s : Selectable, p : Position, dim : Dimensions, dis : Display) {
+  public function update(s : Selectable, p : Position, dis : Display) {
     if (!clickedThisFrame) return;
 
+    var mouseTileX = coords.x / Config.tileWidth;
+    var mouseTileY = coords.y / Config.tileHeight;
+
     // only handle clicks the first time the mouse is down
-    if (coords.x >= p.x && coords.x <= p.x + dim.width &&
-        coords.y >= p.y && coords.y <= p.y + dim.height) {
+    if (mouseTileX >= p.x && mouseTileX <= p.x + 1 &&
+        mouseTileY >= p.y && mouseTileY <= p.y + 1) {
       if (!s.isSelected) {
         s.isSelected = true;
         dis.sprite.alpha = 1;
