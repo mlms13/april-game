@@ -39,6 +39,7 @@ class Game {
     world.physics.add(new MouseSelect(stage));
     world.render.add(new DrawPosition(stage));
     world.render.add(new PixiRenderer(stage, renderer));
+    world.render.add(new MoveSelected());
   }
 
   public function start() {

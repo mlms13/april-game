@@ -1,6 +1,7 @@
 package game.systems;
 
 import edge.ISystem;
+import edge.Entity;
 import pixi.core.display.Container;
 import pixi.core.utils.EventData;
 import pixi.core.math.Point;
@@ -19,6 +20,8 @@ class MouseSelect extends PixiMouse implements ISystem {
     clickedThisFrame = firstDown;
   }
 
+  var entity : Entity;
+
   public function update(s : Selectable, p : Position, dis : Display) {
     if (!clickedThisFrame) return;
 
@@ -28,12 +31,10 @@ class MouseSelect extends PixiMouse implements ISystem {
     // only handle clicks the first time the mouse is down
     if (mouseTileX >= p.x && mouseTileX <= p.x + 1 &&
         mouseTileY >= p.y && mouseTileY <= p.y + 1) {
-      if (!s.isSelected) {
-        s.isSelected = true;
-        dis.sprite.alpha = 1;
+      if (entity.existsType("game.components.Selected")) {
+        entity.removeType(Selected);
       } else {
-        s.isSelected = false;
-        dis.sprite.alpha = 0.8;
+        entity.add(new Selected());
       }
     }
   }
