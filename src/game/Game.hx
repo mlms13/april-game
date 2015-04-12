@@ -2,6 +2,7 @@ package game;
 
 import edge.World;
 import edge.Engine;
+import edge.pixi.components.Position;
 import pixi.core.display.Container;
 import pixi.core.renderers.SystemRenderer;
 

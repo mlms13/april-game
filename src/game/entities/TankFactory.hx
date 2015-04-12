@@ -1,7 +1,9 @@
 package game.entities;
 
 import edge.World;
-import game.components.*;
+import edge.pixi.components.Position;
+import game.components.Display;
+import game.components.Selectable;
 
 class TankFactory {
   public static function createTank(world : World, x : Float, y : Float) {

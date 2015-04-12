@@ -3,7 +3,7 @@ package game.systems;
 import edge.ISystem;
 import game.components.Selected;
 import game.components.Display;
-import game.components.Position;
+import edge.pixi.components.Position;
 
 class MoveSelected implements ISystem {
   public function new() {

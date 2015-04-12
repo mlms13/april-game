@@ -2,6 +2,7 @@ package game.systems;
 
 import edge.ISystem;
 import edge.Entity;
+import edge.pixi.components.Position;
 import pixi.core.display.Container;
 import pixi.core.utils.EventData;
 import pixi.core.math.Point;

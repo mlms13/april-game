@@ -2,10 +2,10 @@ package game.systems;
 
 import edge.Entity;
 import edge.ISystem;
+import edge.pixi.components.Position;
 import pixi.core.renderers.SystemRenderer;
 import pixi.core.display.Container;
 import game.components.Display;
-import game.components.Position;
 
 class DrawPosition implements ISystem {
   var stage : Container;

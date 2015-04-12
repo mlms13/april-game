@@ -1,4 +1,5 @@
 -lib edge
+-lib edge-pixi
 -lib pixijs
 -lib thx.color
 -cp src
