@@ -8,6 +8,7 @@ import pixi.core.utils.EventData;
 import pixi.core.math.Point;
 
 import edge.cosystem.PixiMouse;
+import edge.pixi.components.Display;
 import game.components.*;
 
 class MouseSelect extends PixiMouse implements ISystem {

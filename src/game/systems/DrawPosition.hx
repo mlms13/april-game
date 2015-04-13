@@ -3,9 +3,9 @@ package game.systems;
 import edge.Entity;
 import edge.ISystem;
 import edge.pixi.components.Position;
+import edge.pixi.components.Display;
 import pixi.core.renderers.SystemRenderer;
 import pixi.core.display.Container;
-import game.components.Display;
 
 class DrawPosition implements ISystem {
   var stage : Container;
@@ -27,7 +27,7 @@ class DrawPosition implements ISystem {
     d.sprite.x = p.x * Config.tileWidth;
     d.sprite.y = p.y * Config.tileWidth;
 
-    d.sprite.scale.x = d.flipX ? -1 : 1;
-    d.sprite.scale.y = d.flipY ? -1 : 1;
+    // d.sprite.scale.x = d.flipX ? -1 : 1;
+    // d.sprite.scale.y = d.flipY ? -1 : 1;
   }
 }

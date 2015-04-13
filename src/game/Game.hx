@@ -3,6 +3,7 @@ package game;
 import edge.World;
 import edge.Engine;
 import edge.pixi.components.Position;
+import edge.pixi.components.Display;
 import pixi.core.display.Container;
 import pixi.core.renderers.SystemRenderer;
 
@@ -24,14 +25,14 @@ class Game {
     for (i in 0...Config.xTiles) {
       for (j in 0...Config.yTiles) {
         world.engine.create([
-          new Display('assets/grass.png'),
+          Display.fromImagePath('assets/grass.png'),
           new Position(i, j)
         ]);
       }
     }
 
     world.engine.create([
-      new Display('assets/base.png'),
+      Display.fromImagePath('assets/base.png'),
       new Position(Config.xTiles - 2, Config.yTiles -2)
     ]);
 
