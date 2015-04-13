@@ -4,6 +4,7 @@ import edge.World;
 import edge.Engine;
 import edge.pixi.components.Position;
 import edge.pixi.components.DisplaySprite;
+import edge.pixi.systems.UpdateRotation;
 import pixi.core.display.Container;
 import pixi.core.renderers.SystemRenderer;
 
@@ -42,6 +43,7 @@ class Game {
     world.render.add(new DrawPosition(stage));
     world.render.add(new PixiRenderer(stage, renderer));
     world.render.add(new MoveSelected());
+    world.render.add(new UpdateRotation());
   }
 
   public function start() {
