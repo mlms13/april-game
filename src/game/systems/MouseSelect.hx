@@ -8,7 +8,7 @@ import pixi.core.utils.EventData;
 import pixi.core.math.Point;
 
 import edge.cosystem.PixiMouse;
-import edge.pixi.components.Display;
+import edge.pixi.components.DisplaySprite;
 import game.components.*;
 
 class MouseSelect extends PixiMouse implements ISystem {
@@ -24,7 +24,7 @@ class MouseSelect extends PixiMouse implements ISystem {
 
   var entity : Entity;
 
-  public function update(s : Selectable, p : Position, dis : Display) {
+  public function update(s : Selectable, p : Position, dis : DisplaySprite) {
     if (!clickedThisFrame) return;
 
     var mouseTileX = coords.x / Config.tileWidth;
