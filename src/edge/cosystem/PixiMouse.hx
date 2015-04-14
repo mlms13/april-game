@@ -1,7 +1,7 @@
 package edge.cosystem;
 
 import pixi.core.display.Container;
-import pixi.core.utils.EventData;
+import pixi.plugins.eventemitter.EventTarget;
 import pixi.core.math.Point;
 
 class PixiMouse {
@@ -22,7 +22,7 @@ class PixiMouse {
     this.stage.on("mouseup", mouseUp);
   }
 
-  function mouseMove(e : EventData) {
+  function mouseMove(e : EventTarget) {
     var pt = (e.data.global : Point);
     coords.x = pt.x;
     coords.y = pt.y;
