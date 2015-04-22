@@ -6,7 +6,7 @@ import edge.pixi.components.Position;
 import pixi.core.display.Container;
 
 import edge.cosystem.PixiMouse;
-import edge.pixi.components.DisplaySprite;
+import edge.pixi.components.Display;
 import game.components.*;
 
 class MouseSelect extends PixiMouse implements ISystem {
@@ -22,7 +22,7 @@ class MouseSelect extends PixiMouse implements ISystem {
 
   var entity : Entity;
 
-  public function update(s : Selectable, p : Position, dis : DisplaySprite) {
+  public function update(s : Selectable, p : Position, dis : Display) {
     if (!clickedThisFrame) return;
 
     var mouseTileX = coords.x / Config.tileWidth;
@@ -31,7 +31,7 @@ class MouseSelect extends PixiMouse implements ISystem {
     // only handle clicks the first time the mouse is down
     if (mouseTileX >= p.x && mouseTileX <= p.x + 1 &&
         mouseTileY >= p.y && mouseTileY <= p.y + 1) {
-      if (entity.existsType("game.components.Selected")) {
+      if (entity.existsType(Selected)) {
         entity.removeType(Selected);
       } else {
         entity.add(new Selected());
