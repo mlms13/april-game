@@ -3,30 +3,24 @@ package game.systems;
 import edge.ISystem;
 import edge.Entity;
 import edge.pixi.components.Position;
+import edge.pixi.cosystems.MouseSystem;
+import edge.pixi.components.Display;
 import pixi.core.display.Container;
 
-import edge.cosystem.PixiMouse;
-import edge.pixi.components.Display;
 import game.components.*;
 
-class MouseSelect extends PixiMouse implements ISystem {
-  var clickedThisFrame : Bool;
-
+class MouseSelect extends MouseSystem implements ISystem {
   public function new(stage : Container) {
     super(stage);
-  }
-
-  public function before() {
-    clickedThisFrame = firstDown;
   }
 
   var entity : Entity;
 
   public function update(s : Selectable, p : Position, dis : Display) {
-    if (!clickedThisFrame) return;
+    if (!firstDown) return;
 
-    var mouseTileX = coords.x / Config.tileWidth;
-    var mouseTileY = coords.y / Config.tileHeight;
+    var mouseTileX = x / Config.tileWidth;
+    var mouseTileY = y / Config.tileHeight;
 
     // only handle clicks the first time the mouse is down
     if (mouseTileX >= p.x && mouseTileX <= p.x + 1 &&
