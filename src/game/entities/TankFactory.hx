@@ -5,7 +5,7 @@ import edge.pixi.components.Position;
 import edge.pixi.components.Display;
 import edge.pixi.components.Rotation;
 import edge.pixi.components.RotationVelocity;
-import game.components.Selectable;
+import game.components.*;
 
 class TankFactory {
   public static function createTank(world : World, x : Float, y : Float) {
@@ -14,6 +14,7 @@ class TankFactory {
       new Position(x, y),
       new Rotation(0),
       // new RotationVelocity(3),
+      new Target(),
       new Selectable()
     ]);
   }

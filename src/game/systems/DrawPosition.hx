@@ -26,8 +26,5 @@ class DrawPosition implements ISystem {
   public function update(d : Display, p : Position) {
     d.node.x = p.x * Config.tileWidth;
     d.node.y = p.y * Config.tileWidth;
-
-    // d.node.scale.x = d.flipX ? -1 : 1;
-    // d.node.scale.y = d.flipY ? -1 : 1;
   }
 }
