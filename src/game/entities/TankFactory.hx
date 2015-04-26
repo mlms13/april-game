@@ -15,7 +15,6 @@ class TankFactory {
       new Rotation(0),
       // new RotationVelocity(3),
       new MaxSpeed(3),
-      new Target(),
       new Selectable()
     ]);
   }

@@ -2,4 +2,4 @@ package game.components;
 
 import edge.IComponent;
 
-class Target extends pixi.core.math.Point { }
+class Destination extends pixi.core.math.Point { }

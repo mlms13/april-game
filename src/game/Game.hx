@@ -40,7 +40,7 @@ class Game {
     TankFactory.createTank(world, 2, 2);
 
     world.physics.add(new MouseSelect(stage));
-    world.physics.add(new MouseSetTarget(stage));
+    world.physics.add(new MouseSetDestination(stage));
     world.render.add(new DrawPosition(stage));
     world.render.add(new PixiRenderer(stage, renderer));
     world.render.add(new MoveSelected());

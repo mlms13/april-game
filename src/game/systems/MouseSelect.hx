@@ -17,17 +17,23 @@ class MouseSelect extends MouseSystem implements ISystem {
   var entity : Entity;
 
   public function update(s : Selectable, p : Position, dis : Display) {
+    // only handle clicks the first time the mouse is down
     if (!firstDown) return;
 
     var mouseTileX = x / Config.tileWidth;
     var mouseTileY = y / Config.tileHeight;
 
-    // only handle clicks the first time the mouse is down
+    // check to see if the click matches the coords of the sprite
     if (mouseTileX >= p.x && mouseTileX <= p.x + 1 &&
         mouseTileY >= p.y && mouseTileY <= p.y + 1) {
+
       if (entity.existsType(Selected)) {
+        // if it's already selected, unselect
+        dis.node.alpha = 0.8;
         entity.removeType(Selected);
       } else {
+        // otherwise, select it
+        dis.node.alpha = 1;
         entity.add(new Selected());
       }
     }

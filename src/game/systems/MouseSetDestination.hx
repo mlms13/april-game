@@ -9,22 +9,18 @@ import pixi.core.display.Container;
 
 import game.components.*;
 
-class MouseSetTarget extends MouseSystem implements ISystem {
+class MouseSetDestination extends MouseSystem implements ISystem {
   public function new(stage : Container) {
     super(stage);
   }
 
-  var selected : edge.View<{s : Selected, target : Target}>;
-
-  public function update() {
+  var entity : Entity;
+  public function update(s : Selected) {
     if (!firstDown) return;
 
     var mouseTileX = x / Config.tileWidth;
     var mouseTileY = y / Config.tileHeight;
 
-    for (unit in selected) {
-      unit.data.target.x = mouseTileX;
-      unit.data.target.y = mouseTileY;
-    }
+    entity.add(new Destination(mouseTileX, mouseTileY));
   }
 }

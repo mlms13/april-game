@@ -11,15 +11,16 @@ class MoveSelected implements ISystem {
   }
 
   var timeDelta : Float;
+  var entity : edge.Entity;
+  public function update(s : Selected, p : Position, r : Rotation, m : MaxSpeed, dest : Destination) {
+    // remove destination when the entity has arrived. there's a threshold here
+    // because otherwise the entity never exactly reaches the point
+    if (Math.abs(p.x - dest.x) < 0.05 && Math.abs(p.y - dest.y) < 0.05) {
+      entity.removeType(Destination);
+      return;
+    }
 
-  public function update(s : Selected, d : Display, p : Position, r : Rotation, m : MaxSpeed, t : Target) {
-    d.node.alpha = 1;
-
-    // this is a dirty hack to allow a reasonable threshold of accuracy,
-    // otherwise the tank flips back and forth, never reaching the target
-    if (Math.abs(p.x - t.x) < 0.05 && Math.abs(p.y - t.y) < 0.05) return;
-
-    r.angle = Math.atan2(t.y - p.y, t.x - p.x);
+    r.angle = Math.atan2(dest.y - p.y, dest.x - p.x);
 
     var speedThisFrame = m.speed * timeDelta / 1000;
     var stepX = Math.cos(r.angle) * speedThisFrame;
