@@ -43,7 +43,8 @@ class Game {
     world.physics.add(new MouseSetDestination(stage));
     world.render.add(new DrawPosition(stage));
     world.render.add(new PixiRenderer(stage, renderer));
-    world.render.add(new MoveSelected());
+    world.render.add(new RotateTowardDestination());
+    world.render.add(new MoveForward());
     world.render.add(new UpdateRotation());
   }
 

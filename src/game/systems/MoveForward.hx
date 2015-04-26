@@ -1,12 +1,11 @@
 package game.systems;
 
 import edge.ISystem;
-import edge.pixi.components.Display;
 import edge.pixi.components.Position;
 import edge.pixi.components.Rotation;
 import game.components.*;
 
-class MoveSelected implements ISystem {
+class MoveForward implements ISystem {
   public function new() {
   }
 
@@ -19,8 +18,6 @@ class MoveSelected implements ISystem {
       entity.removeType(Destination);
       return;
     }
-
-    r.angle = Math.atan2(dest.y - p.y, dest.x - p.x);
 
     var speedThisFrame = m.speed * timeDelta / 1000;
     var stepX = Math.cos(r.angle) * speedThisFrame;
