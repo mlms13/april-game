@@ -13,7 +13,7 @@ class TankFactory {
       Display.fromImagePath('assets/tank.png', 0.5, 0.5),
       new Position(x, y),
       new Rotation(0),
-      new RotationVelocity(Math.PI / 6),
+      new RotationVelocity(Math.PI / 2),
       new MaxSpeed(3),
       new Selectable()
     ]);
