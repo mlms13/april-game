@@ -10,12 +10,22 @@ class MoveSelected implements ISystem {
   public function new() {
   }
 
-  public function update(s : Selected, d : Display, p : Position, r : Rotation, t : Target) {
+  var timeDelta : Float;
+
+  public function update(s : Selected, d : Display, p : Position, r : Rotation, m : MaxSpeed, t : Target) {
     d.node.alpha = 1;
+
+    // this is a dirty hack to allow a reasonable threshold of accuracy,
+    // otherwise the tank flips back and forth, never reaching the target
+    if (Math.abs(p.x - t.x) < 0.05 && Math.abs(p.y - t.y) < 0.05) return;
 
     r.angle = Math.atan2(t.y - p.y, t.x - p.x);
 
-    p.x += 0.01 * (t.x - p.x);
-    p.y += 0.01 * (t.y - p.y);
+    var speedThisFrame = m.speed * timeDelta / 1000;
+    var stepX = Math.cos(r.angle) * speedThisFrame;
+    var stepY = Math.sin(r.angle) * speedThisFrame;
+
+    p.x += stepX;
+    p.y += stepY;
   }
 }
