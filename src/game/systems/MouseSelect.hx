@@ -24,8 +24,8 @@ class MouseSelect extends MouseSystem implements ISystem {
     var mouseTileY = y / Config.tileHeight;
 
     // check to see if the click matches the coords of the sprite
-    if (mouseTileX >= p.x && mouseTileX <= p.x + 1 &&
-        mouseTileY >= p.y && mouseTileY <= p.y + 1) {
+    if (mouseTileX >= p.x - 0.5 && mouseTileX <= p.x + 0.5 &&
+        mouseTileY >= p.y - 0.5 && mouseTileY <= p.y + 0.5) {
 
       if (entity.existsType(Selected)) {
         // if it's already selected, unselect
