@@ -10,7 +10,7 @@ class RotateTowardDestination implements ISystem {
   public function new() { }
 
   var timeDelta : Float;
-  public function update(p : Position, r : Rotation, rv : RotationVelocity, dest : Destination) {
+  public function update(s : Selected, p : Position, r : Rotation, rv : RotationVelocity, dest : Destination) {
     // calculate difference between current angle and the angle to destination
     var destAngle = Math.atan2(dest.y - p.y, dest.x - p.x),
         rotationStep = rv.dangle * timeDelta / 1000,
