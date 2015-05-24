@@ -3,8 +3,8 @@ var gulp = require('gulp'),
 
 var path = {
   lib: {
-    all: ['./web/lib/**/*.js'],
-    dest: './bin/lib'
+    all: ['./node_modules/pixi.js/bin/pixi.js'],
+    dest: './bin/lib/'
   },
   html: {
     all: ['./web/**/*.html'],

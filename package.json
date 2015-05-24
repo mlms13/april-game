@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/mlms13/april-game/issues"
   },
-  "homepage": "https://github.com/mlms13/april-game"
+  "homepage": "https://github.com/mlms13/april-game",
+  "dependencies": {
+    "pixi.js": "^3.0.6"
+  }
 }
