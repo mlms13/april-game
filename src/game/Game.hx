@@ -2,7 +2,6 @@ package game;
 
 import edge.World;
 import edge.Engine;
-import edge.pixi.components.Position;
 import edge.pixi.components.Display;
 import edge.pixi.systems.UpdateRotation;
 import pixi.core.display.Container;
